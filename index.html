@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio of Sara Esperas</title>
+    <title>My Sara Esperas</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
 
@@ -260,7 +260,51 @@
     <header>
         <header>
             <img src="logo.png" alt="Logo" class="logo"> 
-            <h1>Welcome to My Portfolio</h1>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to My Portfolio</title>
+  <style>
+    .ml2 {
+      font-weight: 900;
+      font-size: 3.5em;
+      color:hsla(20, 20%, 97%, 0.952);
+
+    }
+
+    .ml2 .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="ml2">Welcome to My Portfolio</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  
+  <script>
+    var textWrapper = document.querySelector('.ml2');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+    anime.timeline({loop: true})
+      .add({
+        targets: '.ml2 .letter',
+        scale: [4,1],   
+        opacity: [0,1], 
+        translateZ: 0,  
+        easing: "easeOutExpo",
+        duration: 950, 
+        delay: (el, i) => 70*i  
+      }).add({
+        targets: '.ml2',
+        opacity: 0,  
+        duration: 1000, 
+        easing: "easeOutExpo",
+        delay: 1000 
+      });
+  </script>
+</body>
+
+</html>
         </header>
         
         <style>
@@ -298,7 +342,6 @@
                     <li>Listening to Music: Finding inspiration and relaxation in my favorite tunes.</li>
                     <li>Eating Sweets: Indulging my sweet tooth with delicious treats.</li>
                 </ul>
-
             </div>
         </section>
         <section id="fun-facts" class="visible">
@@ -491,7 +534,6 @@
             retina_detect: true
         });
 
-        // Intersection Observer for Smooth Reveal
         document.addEventListener('DOMContentLoaded', () => {
             const sections = document.querySelectorAll('section');
             const observer = new IntersectionObserver((entries) => {
