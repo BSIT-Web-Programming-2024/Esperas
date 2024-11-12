@@ -575,5 +575,64 @@
             });
         });
     </script>
+<div>
+<title>Shooting Star</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .shooting-star {
+            position: absolute;
+            width: 5px;
+            height: 5px; 
+            background-color: rgb(251, 244, 249);
+            box-shadow: 0 0 8px rgb(3, 245, 241);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: shoot 1s linear forwards; 
+        }
+
+        @keyframes shoot {
+            0% {
+                opacity: 1;
+                transform: scale(1) translate(0, 0);
+            }
+            100% {
+                opacity: 0;
+                transform: scale(0.5) translate(200px, 200px); 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <script>
+        function createShootingStar(x, y) {
+            const star = document.createElement("div");
+            star.classList.add("shooting-star");
+
+            star.style.left = `${x}px`;
+            star.style.top = `${y}px`;
+
+            document.body.appendChild(star);
+            setTimeout(() => {
+                star.remove();
+            }, 1000); 
+        }
+
+        document.addEventListener("mousemove", (event) => {
+            createShootingStar(event.clientX, event.clientY);
+        });
+
+        document.addEventListener("touchmove", (event) => {
+            const touch = event.touches[0];
+            createShootingStar(touch.clientX, touch.clientY);
+        });
+    </script>
+    </body>
+    </div>
 </body>
 </html>
